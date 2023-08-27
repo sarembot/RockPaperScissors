@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
 
+//write a function that gets the computers choice
+
+        function getComputerChoice() {
+            const randomNumber = Math.floor(Math.random() * 3);
+
+            if (randomNumber === 1) {
+                return 'Computer Says: Rock'
+            } else if (randomNumber === 2) {
+                return 'Computer Says: Paper'
+            } else {
+                return 'Computer Says: Scissors'
+            }
+        }
+
+        // write function that compares copmuters choice to the players choice
+
+        function playRound (playerSelection, computerSelection){
+
+        
+            if ((playerSelection === 'rock' && computerSelection === 'Computer Says: Scissors') || (playerSelection === 'scissors' && computerSelection === 'Computer Says: Paper') || (playerSelection === 'paper' && computerSelection === 'Computer Says: Rock')){
+                return 'You win!'
+            }else if ((playerSelection === 'scissors' && computerSelection === 'Computer Says: Rock') || (playerSelection === 'paper' && computerSelection === 'Computer Says: Scissors') || (playerSelection === 'rock' && computerSelection === 'Computer Says: Paper' )) {
+                return 'Loser!'
+            }else{
+                return 'It\'s a tie!'
+            }
+
+        }
+
+        //define choices
+
+        let computerSelection = getComputerChoice()
+        let playerSelection = 'rock'
+
+        //write loop into function to play 5 rounds
+
+        function playGame(){
+           
+
+            for (i = 0; i < 5; i++) {
+                
+                let playerSelection = prompt("Rock, paper, scissors?");
+                let computerSelection = getComputerChoice();
+
+                console.log(computerSelection)
+                console.log(playRound(playerSelection, computerSelection));
+            }
+            
+            let playerWins = 'You win!';
+            let computerWins = 'Loser!';
+            if (playerWins > computerWins) {
+                console.log("WINNER WINNER CHICKEN DINNER")
+            }else if (computerWins > playerWins) {
+                console.log("YOU'RE A BIG FAT LOSER")
+            }else {
+                console.log('Tie :(')
+            }
+        }
+
+        playGame()
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
